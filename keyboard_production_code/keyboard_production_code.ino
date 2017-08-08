@@ -49,17 +49,17 @@ char keys[] = {
   // REGISTER 3
   0, KEY_DOWN_ARROW, KEY_RIGHT_ARROW, KEY_UP_ARROW, 'r', 'z', 'q', KEY_LEFT_ARROW,
   // REGISTER 4 (PI-8 is Ctrl-S, Save)
-  0, 'g', '&', '*', 'h', 'i', '(', 's',
-  // REGISTER 5 (PI-7 is Ctrl-O, Open)
-  'd', 'e', '$', '%', 'f', '^', 'o', KEY_F5,
+  0, 'g', '&', '?', 'h', 'i', '(', 's',
+  // REGISTER 5 (PI-7 is Ctrl-O, Open, PI-8 is Web button)
+  'd', 'e', '$', '%', 'f', '"', 'o', 'c',
   // REGISTER 6
   0, 0, 0, 'n', 'o', 'p', 'y', 'x',
   // REGISTER 7
   'u', 'm', 'v', 'w', KEY_LEFT_ALT, 's', 't', ' ',
-  // REGISTER 8
-  'j', 'k', 'b', 'a', 'l', 'c', '#', KEY_F6,
-  // REGISTER 9
-  KEY_LEFT_SHIFT, KEY_CAPS_LOCK, KEY_BACKSPACE, '~', KEY_LEFT_CTRL, '!', '@', KEY_F7
+  // REGISTER 8 (PI-8 is Word button)
+  'j', 'k', 'b', 'a', 'l', 'c', '#', 'w',
+  // REGISTER 9 (PI-8 is Excel button)
+  KEY_LEFT_SHIFT, KEY_CAPS_LOCK, KEY_BACKSPACE, '~', KEY_LEFT_CTRL, '!', '@', 'e'
 };
 
 void setup() {
@@ -134,7 +134,8 @@ void read_keyboard() {
    If any keys need special handling, add extra code here.
 
    My keyboard has "Open" and "Save" keys, requiring multiple keys to
-   be pressed at the same time.
+   be pressed at the same time. It also has special buttons to start
+   Excel, Word, and a browser.
 
    If you don't need extra handling, you can remove this function.
 */
@@ -144,6 +145,15 @@ void check_special_handling(int i, int j, bool press) {
       Keyboard.press(KEY_LEFT_CTRL);
     } else {
       Keyboard.release(KEY_LEFT_CTRL);
+    }
+  }
+  if ((i == 5 && j == 7) || (i == 8 && j == 7) || (i == 9 && j == 7)) {
+    if (press) {
+      Keyboard.press(KEY_LEFT_CTRL);
+      Keyboard.press(KEY_LEFT_ALT);
+    } else {
+      Keyboard.release(KEY_LEFT_CTRL);
+      Keyboard.release(KEY_LEFT_ALT);
     }
   }
 }
