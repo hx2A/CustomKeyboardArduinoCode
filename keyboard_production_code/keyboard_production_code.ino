@@ -41,7 +41,7 @@ byte button_states[] = {0x00, 0x00, 0x00, 0x00, 0x00,
 */
 char keys[] = {
   // REGISTER 0
-  KEY_RETURN, KEY_PAGE_DOWN, ')', KEY_DELETE, '=', '/', '*', KEY_PAGE_UP,
+  KEY_RETURN, KEY_PAGE_DOWN, '?', KEY_DELETE, '=', '/', '*', KEY_PAGE_UP,
   // REGISTER 1
   '4', '7', '5', '8', '9', '+', '-', '6',
   // REGISTER 2
@@ -49,9 +49,9 @@ char keys[] = {
   // REGISTER 3
   0, KEY_DOWN_ARROW, KEY_RIGHT_ARROW, KEY_UP_ARROW, 'r', 'z', 'q', KEY_LEFT_ARROW,
   // REGISTER 4 (PI-8 is Ctrl-S, Save)
-  0, 'g', '&', '?', 'h', 'i', '(', 's',
+  0, 'g', '(', ')', 'h', 'i', '"', 's',
   // REGISTER 5 (PI-7 is Ctrl-O, Open, PI-8 is Web button)
-  'd', 'e', '$', '%', 'f', '"', 'o', 'c',
+  'd', 'e', '$', '%', 'f', '&', 'o', 'c',
   // REGISTER 6
   0, 0, 0, 'n', 'o', 'p', 'y', 'x',
   // REGISTER 7
